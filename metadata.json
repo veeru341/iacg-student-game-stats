@@ -1,0 +1,6 @@
+{
+  "name": "Gamer Stats Dashboard",
+  "description": "An application to display detailed game statistics for players. Users can log in to view a summary of all players and drill down into detailed performance reports for individual players, including AI-generated summaries.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
