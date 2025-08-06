@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import type { Student } from '../types.ts';
 import { fetchStudentData, triggerStatsRefresh } from '../services/apiService.ts';
-import { generatePerformanceSummary } from '../services/geminiService.ts';
+
 import {
     LogoutIcon, InfoIcon, SparklesIcon, BoltIcon, BrainIcon, EyeIcon, ShuffleIcon,
     PuzzleIcon, CalculatorIcon, ArrowUpIcon, GameIcon, RefreshIcon
@@ -118,21 +118,7 @@ interface StudentDetailProps {
     onBack: () => void;
 }
 const StudentDetailView: React.FC<StudentDetailProps> = ({ student, allStudents, onBack }) => {
-    const [summary, setSummary] = useState<string>('');
-    const [isLoadingSummary, setIsLoadingSummary] = useState<boolean>(true);
     const [activeStat, setActiveStat] = useState<StatKey>('overall');
-
-    const fetchSummary = useCallback(async () => {
-        setIsLoadingSummary(true);
-        const result = await generatePerformanceSummary(student);
-        setSummary(result);
-        setIsLoadingSummary(false);
-    }, [student]);
-
-    useEffect(() => {
-        fetchSummary();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [student.id]);
     
     const lpiCategories = [
         { label: 'Overall LPI', value: student.lpi.overall, max: 2000 },
@@ -175,18 +161,7 @@ const StudentDetailView: React.FC<StudentDetailProps> = ({ student, allStudents,
             </button>
             <h2 className="text-3xl font-bold mb-6 capitalize text-white">{student.name}'s Stats</h2>
 
-            <InfoCard title="AI Performance Summary" icon={<SparklesIcon className="w-5 h-5 text-yellow-400"/>} className="mb-6 border-yellow-400/50 bg-yellow-400/5">
-                {isLoadingSummary ? (
-                     <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></div>
-                        <div className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse [animation-delay:0.2s]"></div>
-                        <div className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse [animation-delay:0.4s]"></div>
-                        <span className="text-yellow-200/80">Generating personalized insights...</span>
-                    </div>
-                ) : (
-                    <p className="text-gray-300 leading-relaxed">{summary}</p>
-                )}
-            </InfoCard>
+
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Column 1 */}
@@ -499,23 +474,19 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
     return (
         <div className="min-h-screen">
             <header className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700/50 sticky top-0 z-10">
-                <div className="w-full px-4 sm:px-6 lg:px-8">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex items-center gap-3">
-                            <div className="flex-shrink-0">
-                                <img src="/assets/images/IACG.png" alt="IACG Logo" className="h-10 w-auto" />
-                            </div>
+                            <img src="/assets/images/IACG.png" alt="IACG Logo" className="h-10 w-auto" />
                             <span className="text-xl font-bold text-white tracking-wider">IACG Students Game Stats</span>
                         </div>
-                        <div className="flex items-center justify-end">
-                            <button
-                                onClick={onLogout}
-                                className="flex items-center gap-2 bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-yellow-500 transition-colors"
-                            >
-                                <LogoutIcon />
-                                <span>Logout</span>
-                            </button>
-                        </div>
+                        <button
+                            onClick={onLogout}
+                            className="flex items-center gap-2 bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-yellow-500 transition-colors"
+                        >
+                            <LogoutIcon />
+                            <span>Logout</span>
+                        </button>
                     </div>
                 </div>
             </header>
