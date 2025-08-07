@@ -473,16 +473,16 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
 
     return (
         <div className="min-h-screen">
-            <header className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700/50 sticky top-0 z-10">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <div className="flex items-center gap-3">
+            <header className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700/50 sticky top-0 z-10 w-full">
+                <div className="w-full px-4 sm:px-6 lg:px-8">
+                    <div className="flex items-center justify-between h-16 max-w-[2000px] mx-auto w-full">
+                        <div className="flex-shrink-0 flex items-center gap-3">
                             <img src="/assets/images/IACG.png" alt="IACG Logo" className="h-10 w-auto" />
                             <span className="text-xl font-bold text-white tracking-wider">IACG Students Game Stats</span>
                         </div>
                         <button
                             onClick={onLogout}
-                            className="flex items-center gap-2 bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-yellow-500 transition-colors"
+                            className="flex items-center gap-2 bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-yellow-500 transition-colors ml-auto"
                         >
                             <LogoutIcon />
                             <span>Logout</span>
