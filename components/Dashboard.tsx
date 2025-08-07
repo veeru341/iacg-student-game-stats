@@ -477,7 +477,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
                 <div className="w-full px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16 max-w-[2000px] mx-auto w-full">
                         <div className="flex-shrink-0 flex items-center gap-3">
-                            <img src="/assets/images/IACG.png" alt="IACG Logo" className="h-10 w-auto" />
+                            <img src="/IACG.png" alt="IACG Logo" className="h-10 w-auto" />
                             <span className="text-xl font-bold text-white tracking-wider">IACG Students Game Stats</span>
                         </div>
                         <button

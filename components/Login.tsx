@@ -29,7 +29,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
                 <div className="bg-gray-800 border border-gray-700 rounded-2xl shadow-2xl shadow-yellow-400/10 p-8 space-y-8">
                     <div className="text-center space-y-2">
                         <div className="flex justify-center items-center gap-2">
-                            <img src="/assets/images/IACG.png" alt="IACG Logo" className="h-16 w-auto" />
+                            <img src="/IACG.png" alt="IACG Logo" className="h-16 w-auto" />
                         </div>
                         <p className="text-gray-400">IACG Students Game Stats</p>
                     </div>
