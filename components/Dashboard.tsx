@@ -314,7 +314,7 @@ const StatsTableView: React.FC<StatsTableProps> = ({ students, onSelectStudent, 
             </div>
             <button
                 onClick={onRefresh}
-                disabled={disabled}
+                disabled="disabled"
                 className="flex items-center justify-center gap-2 bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-yellow-500 transition-all duration-300 disabled:bg-gray-600 disabled:cursor-not-allowed"
                 aria-live="polite"
             >
