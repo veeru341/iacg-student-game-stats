@@ -166,7 +166,7 @@ const StudentDetailView: React.FC<StudentDetailProps> = ({ student, allStudents,
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Column 1 */}
                 <div className="lg:col-span-1 space-y-6">
-                    <InfoCard title="Lumosity Performance Index" icon={<BoltIcon className="text-yellow-400 w-5 h-5" />}>
+                    <InfoCard title="Cognitive performance index" icon={<BoltIcon className="text-yellow-400 w-5 h-5" />}>
                        {lpiCategories.map(cat => <StatBar key={cat.label} label={cat.label} value={cat.value} maxValue={cat.max}/>)}
                         <div className="border-t border-gray-700 mt-4 pt-4 flex justify-around text-center text-sm">
                             <div>
