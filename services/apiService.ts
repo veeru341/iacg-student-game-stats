@@ -1,7 +1,7 @@
 import { Student } from '../types.ts';
 
-const API_URL = 'https://iacg-lumosity-games-backend-production.up.railway.app/api/results';
-const REFRESH_API_URL = 'https://iacg-lumosity-games-backend-production.up.railway.app/api/lumosity-stats';
+const API_URL = 'https://iacg-lumosity-gamestats-backend-production.up.railway.app/api/results';
+const REFRESH_API_URL = 'https://iacg-lumosity-gamestats-backend-production.up.railway.app/api/lumosity-stats';
 
 const gameIconColors = [
   "bg-cyan-500", "bg-red-500", "bg-sky-600", "bg-amber-500", "bg-lime-500",
